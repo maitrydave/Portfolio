@@ -5,44 +5,699 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maitry Dave | Cybersecurity Professional</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* [All the existing CSS from the query remains the same] */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(100, 255, 218, 0.1) 0%, transparent 50%);
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #64ffda;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #8892b0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #64ffda;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 100;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #64ffda, #ff6b6b, #4ecdc4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #8892b0;
+            margin-bottom: 2rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: 2px solid #64ffda;
+            background: transparent;
+            color: #64ffda;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: #64ffda;
+            color: #0f1419;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 50%;
+            color: #64ffda;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #64ffda;
+            color: #0f1419;
+            transform: translateY(-3px);
+        }
+
+        /* Inspirational Quotes */
+        .quote-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            max-width: 300px;
+            z-index: 1000;
+        }
+
+        .quote-text {
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-author {
+            font-size: 0.8rem;
+            color: #64ffda;
+            text-align: right;
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #ccd6f6;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #64ffda, #ff6b6b);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #8892b0;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: #64ffda;
+            font-weight: 600;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #64ffda, #ff6b6b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0f1419;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #64ffda;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(100, 255, 218, 0.2);
+        }
+
+        .skill-card h3 {
+            color: #64ffda;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(100, 255, 218, 0.1);
+            color: #ccd6f6;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #64ffda;
+            color: #0f1419;
+            transform: scale(1.05);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, #64ffda, #ff6b6b);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 45%;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #64ffda;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+        }
+
+        .timeline-date {
+            color: #64ffda;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            color: #ccd6f6;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        /* Meeting Section */
+        .meeting-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .meeting-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .meeting-frame {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .meeting-frame iframe {
+            width: 100%;
+            height: 650px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .footer-content {
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-grid,
+            .meeting-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 50px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quote-container {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin: 2rem 0;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-    <!-- [All the existing HTML from the query remains the same until the experience section] -->
-    
-    <!-- Experience Section - Completed -->
+    <div class="bg-animation"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">{'<MD/>'}</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#meeting">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Maitry Dave</h1>
+            <p class="hero-subtitle">Cybersecurity @ NYU | Threat Intelligence Intern</p>
+            <p style="color: #8892b0; margin-bottom: 2rem;">Building secure, people-first technology solutions</p>
+            
+            <div class="hero-buttons">
+                <a href="#meeting" class="btn">
+                    <i class="fas fa-calendar-alt"></i> Schedule a Chat
+                </a>
+                <a href="https://drive.google.com/file/d/1Cms3nbp3ENcNrBEFiPhtsVAg-MdaSk62/view?usp=sharing" class="btn" target="_blank">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/maitry-dave-433597197/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/maitrydave" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:md6031@nyu.edu" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <p>I'm a <span class="highlight">Cybersecurity MS student at NYU</span>, currently working as a Threat Intelligence Intern at Palo Alto Networks' Unit 42. My journey spans from web development to advanced threat analysis, with a passion for creating security solutions that are both robust and user-friendly.</p>
+                    
+                    <p>With experience in <span class="highlight">STIX automation, malware analysis, and threat intelligence</span>, I've contributed to securing organizations against sophisticated cyber threats. I believe in bridging the gap between technical excellence and practical application.</p>
+                    
+                    <p>Beyond cybersecurity, I have a strong background in <span class="highlight">event management and leadership</span> - having served as Cultural Secretary and managed multiple technical and cultural events. I'm passionate about <span class="highlight">helping students with international studies</span> and career guidance.</p>
+                </div>
+                
+                <div class="profile-card fade-in">
+                    <div class="profile-image">MD</div>
+                    <h3 style="color: #64ffda; margin-bottom: 1rem;">Maitry Dave</h3>
+                    <p style="color: #8892b0;">MS Cybersecurity @ NYU<br>Threat Intelligence Intern @ Palo Alto Networks</p>
+                </div>
+            </div>
+
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <span class="stat-number">7+</span>
+                    <span class="stat-label">Active Threat Campaigns</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Intelligence Artifacts</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Threat Reports Analyzed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title">Experience Timeline</h2>
+            <h2 class="section-title fade-in">Experience</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-content">
                         <div class="timeline-date">May 2025 - Present</div>
                         <div class="timeline-title">Threat Intelligence Intern</div>
                         <div class="timeline-company">Palo Alto Networks, Unit 42</div>
-                        <p>Engineered STIX objects for 7 active threat campaigns and 25+ intelligence artifacts. Developed comprehensive threat reports analyzing adversary tactics, techniques, and procedures (TTPs).</p>
+                        <p>Engineered STIX automation solution for 7+ active campaigns and 25+ intelligence artifacts. Performed OSINT and malware analysis using VirusTotal, ILI, and OSC.</p>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-content">
-                        <div class="timeline-date">Sep 2023 - Present</div>
-                        <div class="timeline-title">Graduate Student</div>
+                        <div class="timeline-date">Jan 2025 - May 2025</div>
+                        <div class="timeline-title">Graduate Teaching Assistant</div>
                         <div class="timeline-company">New York University</div>
-                        <p>Pursuing Master's in Cybersecurity with focus on threat intelligence, malware analysis, and security architecture. GPA: 3.8/4.0</p>
+                        <p>Assisted 30+ students with network security concepts and graded assignments, enhancing learning outcomes.</p>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item fade-in">
                     <div class="timeline-content">
-                        <div class="timeline-date">Jan 2023 - Aug 2023</div>
-                        <div class="timeline-title">Software Engineer</div>
-                        <div class="timeline-company">Tech Solutions Inc.</div>
-                        <p>Developed secure web applications using Python and JavaScript. Implemented security best practices and conducted vulnerability assessments.</p>
+                        <div class="timeline-date">Mar 2023 - Jul 2023</div>
+                        <div class="timeline-title">Security Analyst</div>
+                        <div class="timeline-company">Macksofy Technologies</div>
+                        <p>Monitored 50+ devices using Wireshark and Zeek, conducted 10+ vulnerability assessments, reducing network downtime by 15 minutes.</p>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
@@ -53,288 +708,137 @@
     <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title fade-in">Technical Skills</h2>
             <div class="skills-container">
-                <div class="skill-card">
-                    <h3>Threat Intelligence</h3>
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">Threat Intelligence</span>
                         <span class="skill-tag">STIX/TAXII</span>
-                        <span class="skill-tag">MITRE ATT&CK</span>
-                        <span class="skill-tag">Threat Hunting</span>
-                        <span class="skill-tag">IOC Analysis</span>
                         <span class="skill-tag">Malware Analysis</span>
+                        <span class="skill-tag">OSINT</span>
+                        <span class="skill-tag">Penetration Testing</span>
                     </div>
                 </div>
                 
-                <div class="skill-card">
-                    <h3>Programming</h3>
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Java</span>
                         <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">PowerShell</span>
                         <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">PowerShell</span>
                     </div>
                 </div>
                 
-                <div class="skill-card">
-                    <h3>Security Tools</h3>
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-tools"></i> Security Tools</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Splunk</span>
                         <span class="skill-tag">Wireshark</span>
                         <span class="skill-tag">Burp Suite</span>
                         <span class="skill-tag">Nmap</span>
-                        <span class="skill-tag">YARA</span>
+                        <span class="skill-tag">Nessus</span>
+                        <span class="skill-tag">Snort</span>
                     </div>
                 </div>
                 
-                <div class="skill-card">
-                    <h3>Platforms & Frameworks</h3>
+                <div class="skill-card fade-in">
+                    <h3><i class="fas fa-users"></i> Leadership & Soft Skills</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Event Management</span>
+                        <span class="skill-tag">Team Leadership</span>
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Mentoring</span>
+                        <span class="skill-tag">Cross-cultural Communication</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
+    <!-- Meeting Section -->
+    <section id="meeting" class="section">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">🔒</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Threat Intelligence Platform</h3>
-                        <p class="project-tech">Python • STIX • REST API • Docker</p>
-                        <p class="project-description">Built a comprehensive threat intelligence platform that ingests, processes, and analyzes threat data from multiple sources using STIX format.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">🛡️</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Malware Analysis Tool</h3>
-                        <p class="project-tech">Python • YARA • Machine Learning</p>
-                        <p class="project-description">Developed an automated malware analysis tool that uses machine learning to classify and analyze malicious samples.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">📊</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Security Dashboard</h3>
-                        <p class="project-tech">React • Node.js • D3.js • MongoDB</p>
-                        <p class="project-description">Created a real-time security dashboard for monitoring network threats and security incidents with interactive visualizations.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3 style="color: #64ffda; margin-bottom: 2rem;">Let's Connect</h3>
-                    <p style="color: #8892b0; margin-bottom: 2rem;">I'm always open to discussing cybersecurity opportunities, threat intelligence, or potential collaborations.</p>
+            <h2 class="section-title fade-in">Let's Connect</h2>
+            <div class="meeting-container">
+                <div class="meeting-info fade-in">
+                    <h3 style="color: #64ffda; margin-bottom: 2rem;">
+                        <i class="fas fa-handshake"></i> Book a Meeting
+                    </h3>
+                    <p style="color: #8892b0; margin-bottom: 2rem;">
+                        <strong>Hi there!</strong><br>
+                        Thanks for stopping by! I'd love to connect with you. Whether you're a recruiter, student seeking guidance, or just want to chat about cybersecurity, feel free to book a 30-minute session.
+                    </p>
                     
-                    <div class="contact-links">
-                        <a href="mailto:maitry@nyu.edu" class="contact-link">
-                            <span class="contact-icon">📧</span>
-                            <span>maitry@nyu.edu</span>
-                        </a>
-                        <a href="https://linkedin.com/in/maitrydave" class="contact-link" target="_blank">
-                            <span class="contact-icon">💼</span>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/maitrydave" class="contact-link" target="_blank">
-                            <span class="contact-icon">🐙</span>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://twitter.com/maitrydave" class="contact-link" target="_blank">
-                            <span class="contact-icon">🐦</span>
-                            <span>Twitter</span>
-                        </a>
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #64ffda; margin-bottom: 1rem;">Perfect for:</h4>
+                        <ul style="color: #8892b0; line-height: 1.8;">
+                            <li>🎓 Students seeking career guidance</li>
+                            <li>🌍 International study discussions</li>
+                            <li>💼 Recruiters and networking</li>
+                            <li>🔐 Cybersecurity conversations</li>
+                            <li>🚀 General mentorship</li>
+                        </ul>
                     </div>
+                    
+                    <p style="color: #8892b0;">
+                        Looking forward to our conversation! 😊
+                    </p>
                 </div>
                 
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-input" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-textarea" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="form-button">Send Message</button>
-                    </form>
+                <div class="meeting-frame fade-in">
+                    <iframe src="https://calendly.com/md6031-nyu/30min" frameborder="0" scrolling="no"></iframe>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Inspirational Quotes -->
+    <div class="quote-container" id="quoteContainer">
+        <div class="quote-text" id="quoteText"></div>
+        <div class="quote-author" id="quoteAuthor"></div>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Maitry Dave. Built with passion for cybersecurity.</p>
-                <div class="footer-links">
-                    <a href="#home" class="footer-link">Home</a>
-                    <a href="#about" class="footer-link">About</a>
-                    <a href="#experience" class="footer-link">Experience</a>
-                    <a href="#skills" class="footer-link">Skills</a>
-                    <a href="#projects" class="footer-link">Projects</a>
-                    <a href="#contact" class="footer-link">Contact</a>
-                </div>
+                <p>&copy; 2025 Maitry Dave. Crafted with passion for cybersecurity and innovation.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Loading screen
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loading').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('loading').style.display = 'none';
-                }, 500);
-            }, 1000);
-        });
-
-        // Typing effect
-        const typingTexts = [
-            'Cybersecurity Professional',
-            'Threat Intelligence Analyst',
-            'NYU Graduate Student',
-            'Security Researcher'
+        // Inspirational quotes
+        const quotes = [
+            { text: "The only impossible journey is the one you never begin.", author: "Tony Robbins" },
+            { text: "Security is not a product, but a process.", author: "Bruce Schneier" },
+            { text: "In cybersecurity, the human element is both the weakest link and the strongest defense.", author: "Kevin Mitnick" },
+            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+            { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
+            { text: "Cybersecurity is a team sport.", author: "Ted Schlein" },
+            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" }
         ];
-        let currentText = 0;
-        let currentChar = 0;
-        let isDeleting = false;
 
-        function typeEffect() {
-            const element = document.getElementById('typingText');
-            const fullText = typingTexts[currentText];
+        let currentQuoteIndex = 0;
+
+        function updateQuote() {
+            const quoteText = document.getElementById('quoteText');
+            const quoteAuthor = document.getElementById('quoteAuthor');
             
-            if (isDeleting) {
-                element.textContent = fullText.substring(0, currentChar - 1);
-                currentChar--;
-            } else {
-                element.textContent = fullText.substring(0, currentChar + 1);
-                currentChar++;
-            }
-
-            if (!isDeleting && currentChar === fullText.length) {
-                setTimeout(() => isDeleting = true, 2000);
-            } else if (isDeleting && currentChar === 0) {
-                isDeleting = false;
-                currentText = (currentText + 1) % typingTexts.length;
-            }
-
-            setTimeout(typeEffect, isDeleting ? 50 : 100);
+            quoteText.textContent = quotes[currentQuoteIndex].text;
+            quoteAuthor.textContent = `— ${quotes[currentQuoteIndex].author}`;
+            
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
         }
 
-        typeEffect();
-
-        // Scroll indicator
-        window.addEventListener('scroll', function() {
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            document.getElementById('scrollIndicator').style.width = scrolled + '%';
-        });
-
-        // Counter animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = parseInt(counter.dataset.target);
-                const increment = target / 100;
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    counter.textContent = Math.floor(current);
-                }, 20);
-            });
-        }
-
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (entry.target.querySelector('.stat-number')) {
-                        animateCounters();
-                    }
-                }
-            });
-        });
-
-        // Observe stats section
-        const statsSection = document.querySelector('.stats-grid');
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-
-        // Floating particles
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 20 + 's';
-            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            document.body.appendChild(particle);
-
-            setTimeout(() => {
-                particle.remove();
-            }, 20000);
-        }
-
-        // Create particles periodically
-        setInterval(createParticle, 2000);
-
-        // Contact form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            this.reset();
-        });
+        // Initialize and update quotes every 20 seconds
+        updateQuote();
+        setInterval(updateQuote, 20000);
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -350,10 +854,22 @@
             });
         });
 
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
