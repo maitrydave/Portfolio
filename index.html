@@ -831,7 +831,7 @@
             const quoteAuthor = document.getElementById('quoteAuthor');
             
             quoteText.textContent = quotes[currentQuoteIndex].text;
-            quoteAuthor.textContent = — ${quotes[currentQuoteIndex].author};
+            quoteAuthor.textContent = `— ${quotes[currentQuoteIndex].author}`;
             
             currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
         }
