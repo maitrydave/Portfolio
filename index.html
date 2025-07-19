@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maitry Dave | Cybersecurity Professional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -15,57 +15,38 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f1419 0%, #1a1a2e 50%, #16213e 100%);
-            color: #e2e8f0;
             line-height: 1.6;
-            overflow-x: hidden;
+            color: #333;
+            background: #f8f9fa;
         }
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(100, 255, 218, 0.1) 0%, transparent 50%);
-            animation: pulseGlow 8s ease-in-out infinite;
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.7; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         /* Navigation */
         nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
-            top: 0;
             width: 100%;
-            background: rgba(15, 20, 25, 0.95);
-            backdrop-filter: blur(20px);
+            top: 0;
             z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
         .logo {
-            font-family: 'Fira Code', monospace;
             font-size: 1.5rem;
             font-weight: 700;
-            color: #64ffda;
+            color: #2c3e50;
             text-decoration: none;
         }
 
@@ -76,188 +57,73 @@
         }
 
         .nav-links a {
-            color: #8892b0;
+            color: #555;
             text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #64ffda;
-            transition: width 0.3s ease;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #64ffda;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            color: #3498db;
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
             text-align: center;
-            position: relative;
         }
 
-        .hero-content {
-            z-index: 100;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 700;
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #64ffda, #ff6b6b, #4ecdc4);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textGlow 3s ease-in-out infinite;
+            font-weight: 700;
         }
 
-        @keyframes textGlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #8892b0;
+        .hero p {
+            font-size: 1.3rem;
             margin-bottom: 2rem;
-            font-family: 'Fira Code', monospace;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
+            opacity: 0.9;
         }
 
         .btn {
-            padding: 15px 30px;
-            border: 2px solid #64ffda;
-            background: transparent;
-            color: #64ffda;
+            display: inline-block;
+            padding: 12px 30px;
+            background: #3498db;
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
+            border-radius: 5px;
+            font-weight: 500;
+            margin: 0 10px;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
         }
 
         .btn:hover {
-            background: #64ffda;
-            color: #0f1419;
+            background: #2980b9;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
         }
 
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
         }
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(100, 255, 218, 0.1);
-            border: 1px solid rgba(100, 255, 218, 0.3);
-            border-radius: 50%;
-            color: #64ffda;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: #64ffda;
-            color: #0f1419;
-            transform: translateY(-3px);
-        }
-
-        /* Inspirational Quotes */
-        .quote-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid rgba(100, 255, 218, 0.3);
-            max-width: 300px;
-            z-index: 1000;
-        }
-
-        .quote-text {
-            font-size: 0.9rem;
-            color: #e2e8f0;
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        .quote-author {
-            font-size: 0.8rem;
-            color: #64ffda;
-            text-align: right;
+        .btn-outline:hover {
+            background: white;
+            color: #3498db;
         }
 
         /* Sections */
         .section {
-            padding: 100px 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding: 80px 0;
         }
 
         .section-title {
-            font-size: 3rem;
-            font-weight: 700;
             text-align: center;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #ccd6f6;
+            color: #2c3e50;
             position: relative;
         }
 
@@ -267,9 +133,9 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #64ffda, #ff6b6b);
+            background: #3498db;
         }
 
         /* About Section */
@@ -283,7 +149,7 @@
         .about-text {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #8892b0;
+            color: #555;
         }
 
         .about-text p {
@@ -291,36 +157,33 @@
         }
 
         .highlight {
-            color: #64ffda;
+            color: #3498db;
             font-weight: 600;
         }
 
         .profile-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            background: white;
             padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(100, 255, 218, 0.3);
-            backdrop-filter: blur(10px);
         }
 
         .profile-image {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #64ffda, #ff6b6b);
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            margin: 0 auto 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
             font-size: 3rem;
+            color: white;
             font-weight: 700;
-            color: #0f1419;
         }
 
-        /* Stats Section */
+        /* Stats */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -329,56 +192,52 @@
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+            background: white;
             padding: 2rem;
+            border-radius: 10px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
         .stat-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+            transform: translateY(-5px);
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #64ffda;
+            color: #3498db;
             display: block;
             margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            color: #8892b0;
+            color: #666;
             font-size: 0.9rem;
         }
 
-        /* Skills Section */
-        .skills-container {
+        /* Skills */
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .skill-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+            background: white;
             padding: 2rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            transition: all 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
         .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(100, 255, 218, 0.2);
+            transform: translateY(-5px);
         }
 
         .skill-card h3 {
-            color: #64ffda;
+            color: #2c3e50;
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -390,25 +249,24 @@
         }
 
         .skill-tag {
-            background: rgba(100, 255, 218, 0.1);
-            color: #ccd6f6;
+            background: #ecf0f1;
+            color: #2c3e50;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
-            border: 1px solid rgba(100, 255, 218, 0.3);
             transition: all 0.3s ease;
         }
 
         .skill-tag:hover {
-            background: #64ffda;
-            color: #0f1419;
-            transform: scale(1.05);
+            background: #3498db;
+            color: white;
         }
 
         /* Experience Timeline */
         .timeline {
             position: relative;
-            padding: 2rem 0;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .timeline::before {
@@ -418,61 +276,70 @@
             transform: translateX(-50%);
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg, #64ffda, #ff6b6b);
+            background: #3498db;
         }
 
         .timeline-item {
-            display: flex;
-            align-items: center;
-            margin: 2rem 0;
             position: relative;
+            margin: 2rem 0;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 2rem;
         }
 
         .timeline-item:nth-child(odd) {
-            flex-direction: row-reverse;
+            padding-right: 2rem;
         }
 
         .timeline-content {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 2rem;
-            width: 45%;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         .timeline-dot {
-            width: 20px;
-            height: 20px;
-            background: #64ffda;
-            border-radius: 50%;
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 50%;
+            width: 15px;
+            height: 15px;
+            background: #3498db;
+            border-radius: 50%;
             z-index: 10;
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -7px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -7px;
         }
 
         .timeline-date {
-            color: #64ffda;
+            color: #3498db;
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
 
         .timeline-title {
-            color: #ccd6f6;
+            color: #2c3e50;
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .timeline-company {
-            color: #ff6b6b;
+            color: #e74c3c;
             margin-bottom: 1rem;
         }
 
         /* Meeting Section */
-        .meeting-container {
+        .meeting-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -480,53 +347,68 @@
         }
 
         .meeting-info {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+            background: white;
             padding: 2rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .meeting-frame {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+            background: white;
             padding: 1rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .meeting-frame iframe {
             width: 100%;
             height: 650px;
             border: none;
+            border-radius: 5px;
+        }
+
+        /* Quote Container */
+        .quote-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 1rem;
             border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 300px;
+            z-index: 1000;
+        }
+
+        .quote-text {
+            font-size: 0.9rem;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-author {
+            font-size: 0.8rem;
+            color: #3498db;
+            text-align: right;
         }
 
         /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 2rem 0;
+            background: #2c3e50;
+            color: white;
             text-align: center;
-            border-top: 1px solid rgba(100, 255, 218, 0.2);
-        }
-
-        .footer-content {
-            color: #8892b0;
-            font-size: 0.9rem;
+            padding: 2rem 0;
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero-title {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
             .about-grid,
-            .meeting-container {
+            .meeting-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -535,93 +417,46 @@
             }
 
             .timeline-item {
-                flex-direction: row !important;
-                padding-left: 50px;
-            }
-
-            .timeline-content {
                 width: 100%;
+                left: 0;
+                padding-left: 50px;
+                padding-right: 0;
             }
 
             .timeline-dot {
-                left: 20px;
+                left: 12px !important;
             }
 
             .nav-links {
                 display: none;
             }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .quote-container {
-                position: relative;
-                bottom: auto;
-                right: auto;
-                margin: 2rem 0;
-            }
-        }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <a href="#home" class="logo">{'<MD/>'}</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#meeting">Connect</a></li>
-            </ul>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo">Maitry Dave</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#meeting">Connect</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Maitry Dave</h1>
-            <p class="hero-subtitle">Cybersecurity @ NYU | Threat Intelligence Intern</p>
-            <p style="color: #8892b0; margin-bottom: 2rem;">Building secure, people-first technology solutions</p>
-            
-            <div class="hero-buttons">
-                <a href="#meeting" class="btn">
-                    <i class="fas fa-calendar-alt"></i> Schedule a Chat
-                </a>
-                <a href="https://drive.google.com/file/d/1Cms3nbp3ENcNrBEFiPhtsVAg-MdaSk62/view?usp=sharing" class="btn" target="_blank">
-                    <i class="fas fa-download"></i> Download Resume
-                </a>
-            </div>
-
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/maitry-dave-433597197/" class="social-link" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/maitrydave" class="social-link" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:md6031@nyu.edu" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                </a>
+        <div class="container">
+            <h1>Maitry Dave</h1>
+            <p>Cybersecurity Professional | NYU Graduate Student</p>
+            <div>
+                <a href="#meeting" class="btn">Schedule a Chat</a>
+                <a href="https://drive.google.com/file/d/1Cms3nbp3ENcNrBEFiPhtsVAg-MdaSk62/view?usp=sharing" class="btn btn-outline" target="_blank">Download Resume</a>
             </div>
         </div>
     </section>
@@ -629,24 +464,24 @@
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="about-grid">
-                <div class="about-text fade-in">
-                    <p>I'm a <span class="highlight">Cybersecurity MS student at NYU</span>, currently working as a Threat Intelligence Intern at Palo Alto Networks' Unit 42. My journey spans from web development to advanced threat analysis, with a passion for creating security solutions that are both robust and user-friendly.</p>
+                <div class="about-text">
+                    <p>I'm a <span class="highlight">Cybersecurity MS student at NYU</span>, currently working as a Threat Intelligence Intern at Palo Alto Networks' Unit 42. My journey spans from web development to advanced threat analysis.</p>
                     
-                    <p>With experience in <span class="highlight">STIX automation, malware analysis, and threat intelligence</span>, I've contributed to securing organizations against sophisticated cyber threats. I believe in bridging the gap between technical excellence and practical application.</p>
+                    <p>With experience in <span class="highlight">STIX automation, malware analysis, and threat intelligence</span>, I've contributed to securing organizations against sophisticated cyber threats.</p>
                     
-                    <p>Beyond cybersecurity, I have a strong background in <span class="highlight">event management and leadership</span> - having served as Cultural Secretary and managed multiple technical and cultural events. I'm passionate about <span class="highlight">helping students with international studies</span> and career guidance.</p>
+                    <p>I'm passionate about <span class="highlight">helping students with international studies</span> and career guidance, leveraging my strong background in event management and leadership.</p>
                 </div>
                 
-                <div class="profile-card fade-in">
+                <div class="profile-card">
                     <div class="profile-image">MD</div>
-                    <h3 style="color: #64ffda; margin-bottom: 1rem;">Maitry Dave</h3>
-                    <p style="color: #8892b0;">MS Cybersecurity @ NYU<br>Threat Intelligence Intern @ Palo Alto Networks</p>
+                    <h3>Maitry Dave</h3>
+                    <p>MS Cybersecurity @ NYU<br>Threat Intelligence Intern @ Palo Alto Networks</p>
                 </div>
             </div>
 
-            <div class="stats-grid fade-in">
+            <div class="stats-grid">
                 <div class="stat-card">
                     <span class="stat-number">7+</span>
                     <span class="stat-label">Active Threat Campaigns</span>
@@ -670,9 +505,9 @@
     <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Experience</h2>
+            <h2 class="section-title">Experience</h2>
             <div class="timeline">
-                <div class="timeline-item fade-in">
+                <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">May 2025 - Present</div>
                         <div class="timeline-title">Threat Intelligence Intern</div>
@@ -682,22 +517,22 @@
                     <div class="timeline-dot"></div>
                 </div>
                 
-                <div class="timeline-item fade-in">
+                <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">Jan 2025 - May 2025</div>
                         <div class="timeline-title">Graduate Teaching Assistant</div>
                         <div class="timeline-company">New York University</div>
-                        <p>Assisted 30+ students with network security concepts and graded assignments, enhancing learning outcomes.</p>
+                        <p>Assisted 30+ students with network security concepts and graded assignments.</p>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
                 
-                <div class="timeline-item fade-in">
+                <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">Mar 2023 - Jul 2023</div>
                         <div class="timeline-title">Security Analyst</div>
                         <div class="timeline-company">Macksofy Technologies</div>
-                        <p>Monitored 50+ devices using Wireshark and Zeek, conducted 10+ vulnerability assessments, reducing network downtime by 15 minutes.</p>
+                        <p>Monitored 50+ devices using Wireshark and Zeek, conducted 10+ vulnerability assessments.</p>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
@@ -708,10 +543,10 @@
     <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-card fade-in">
-                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Cybersecurity</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Threat Intelligence</span>
                         <span class="skill-tag">STIX/TAXII</span>
@@ -721,38 +556,35 @@
                     </div>
                 </div>
                 
-                <div class="skill-card fade-in">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
+                <div class="skill-card">
+                    <h3>Programming</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">Java</span>
                         <span class="skill-tag">SQL</span>
                         <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">PowerShell</span>
                     </div>
                 </div>
                 
-                <div class="skill-card fade-in">
-                    <h3><i class="fas fa-tools"></i> Security Tools</h3>
+                <div class="skill-card">
+                    <h3>Security Tools</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Splunk</span>
                         <span class="skill-tag">Wireshark</span>
                         <span class="skill-tag">Burp Suite</span>
                         <span class="skill-tag">Nmap</span>
                         <span class="skill-tag">Nessus</span>
-                        <span class="skill-tag">Snort</span>
                     </div>
                 </div>
                 
-                <div class="skill-card fade-in">
-                    <h3><i class="fas fa-users"></i> Leadership & Soft Skills</h3>
+                <div class="skill-card">
+                    <h3>Leadership</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Event Management</span>
                         <span class="skill-tag">Team Leadership</span>
                         <span class="skill-tag">Public Speaking</span>
                         <span class="skill-tag">Mentoring</span>
-                        <span class="skill-tag">Cross-cultural Communication</span>
                     </div>
                 </div>
             </div>
@@ -762,41 +594,29 @@
     <!-- Meeting Section -->
     <section id="meeting" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Let's Connect</h2>
-            <div class="meeting-container">
-                <div class="meeting-info fade-in">
-                    <h3 style="color: #64ffda; margin-bottom: 2rem;">
-                        <i class="fas fa-handshake"></i> Book a Meeting
-                    </h3>
-                    <p style="color: #8892b0; margin-bottom: 2rem;">
-                        <strong>Hi there!</strong><br>
-                        Thanks for stopping by! I'd love to connect with you. Whether you're a recruiter, student seeking guidance, or just want to chat about cybersecurity, feel free to book a 30-minute session.
-                    </p>
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="meeting-grid">
+                <div class="meeting-info">
+                    <h3>Book a Meeting</h3>
+                    <p>Thanks for stopping by! I'd love to connect with you. Whether you're a recruiter, student seeking guidance, or just want to chat about cybersecurity, feel free to book a 30-minute session.</p>
                     
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: #64ffda; margin-bottom: 1rem;">Perfect for:</h4>
-                        <ul style="color: #8892b0; line-height: 1.8;">
-                            <li>🎓 Students seeking career guidance</li>
-                            <li>🌍 International study discussions</li>
-                            <li>💼 Recruiters and networking</li>
-                            <li>🔐 Cybersecurity conversations</li>
-                            <li>🚀 General mentorship</li>
-                        </ul>
-                    </div>
-                    
-                    <p style="color: #8892b0;">
-                        Looking forward to our conversation! 😊
-                    </p>
+                    <h4>Perfect for:</h4>
+                    <ul>
+                        <li>Students seeking career guidance</li>
+                        <li>International study discussions</li>
+                        <li>Recruiters and networking</li>
+                        <li>Cybersecurity conversations</li>
+                    </ul>
                 </div>
                 
-                <div class="meeting-frame fade-in">
-                    <iframe src="https://calendly.com/md6031-nyu/30min" frameborder="0" scrolling="no"></iframe>
+                <div class="meeting-frame">
+                    <iframe src="https://calendly.com/md6031-nyu/30min"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Inspirational Quotes -->
+    <!-- Quote Container -->
     <div class="quote-container" id="quoteContainer">
         <div class="quote-text" id="quoteText"></div>
         <div class="quote-author" id="quoteAuthor"></div>
@@ -805,71 +625,37 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Maitry Dave. Crafted with passion for cybersecurity and innovation.</p>
-            </div>
+            <p>&copy; 2025 Maitry Dave. Crafted with passion for cybersecurity.</p>
         </div>
     </footer>
 
     <script>
-        // Inspirational quotes
+        // Quotes functionality
         const quotes = [
             { text: "The only impossible journey is the one you never begin.", author: "Tony Robbins" },
             { text: "Security is not a product, but a process.", author: "Bruce Schneier" },
             { text: "In cybersecurity, the human element is both the weakest link and the strongest defense.", author: "Kevin Mitnick" },
-            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
-            { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
-            { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
-            { text: "Cybersecurity is a team sport.", author: "Ted Schlein" },
-            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" }
+            { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" }
         ];
 
         let currentQuoteIndex = 0;
-
         function updateQuote() {
-            const quoteText = document.getElementById('quoteText');
-            const quoteAuthor = document.getElementById('quoteAuthor');
-            
-            quoteText.textContent = quotes[currentQuoteIndex].text;
-            quoteAuthor.textContent = `— ${quotes[currentQuoteIndex].author}`;
-            
+            document.getElementById('quoteText').textContent = quotes[currentQuoteIndex].text;
+            document.getElementById('quoteAuthor').textContent = `— ${quotes[currentQuoteIndex].author}`;
             currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
         }
 
-        // Initialize and update quotes every 20 seconds
         updateQuote();
         setInterval(updateQuote, 20000);
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
         });
     </script>
 </body>
